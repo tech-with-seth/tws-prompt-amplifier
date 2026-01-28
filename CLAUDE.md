@@ -40,7 +40,7 @@ This is a standard Electron app with two distinct processes:
 - Uses `openai` npm package v4.24.0
 - API calls happen entirely in the renderer process with `dangerouslyAllowBrowser: true`
 - Default model: `gpt-5.2`
-- Temperature: 0.7, Max tokens: 1500
+- Temperature: 0.7, Max completion tokens: 1500
 - System prompt is fully customizable via settings panel
 
 ## File Structure
