@@ -119,7 +119,7 @@
             .title {
                 font-size: 18px;
                 font-weight: 700;
-                color: var(--neon-primary);
+                color: #ffffff;
                 text-transform: uppercase;
                 letter-spacing: 2px;
                 font-family: 'Share Tech Mono', monospace;
@@ -727,9 +727,6 @@
             /* History panel */
             .history-panel {
                 background: var(--panel-gray);
-                border: 1px solid var(--border-gray);
-                border-top: 2px solid var(--neon-primary);
-                box-shadow: inset 0 2px 0 rgba(0, 255, 65, 0.1);
                 max-height: 500px;
                 overflow-y: auto;
             }
@@ -877,7 +874,7 @@
         <div class="container">
             <div class="title-bar">
                 <span class="title">
-                    <i data-lucide="zap"></i>
+                    <i data-lucide="zap" style="stroke: var(--neon-primary-dim);"></i>
                     Prompt Amplifier
                 </span>
                 <div>
@@ -922,6 +919,18 @@
             </div>
 
             <dialog class="settings-dialog" id="settingsDialog">
+                <h3
+                    style="
+                        margin: 0 0 20px 0;
+                        color: var(--neon-primary);
+                        font-family: 'Share Tech Mono', monospace;
+                        font-size: 14px;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                    "
+                >
+                    Settings
+                </h3>
                 <label for="apiKey">OpenAI API Key</label>
                 <input
                     type="password"
@@ -974,13 +983,33 @@
             </div>
 
             <dialog class="history-dialog" id="historyDialog">
+                <h3
+                    style="
+                        margin: 0 0 16px 0;
+                        color: var(--neon-primary);
+                        font-family: 'Share Tech Mono', monospace;
+                        font-size: 14px;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                    "
+                >
+                    Prompt History
+                </h3>
                 <div class="history-panel" id="historyPanel">
                     <div class="history-empty">No history yet</div>
                 </div>
             </dialog>
 
             <button class="amplify-btn" id="amplifyBtn">
-                <i data-lucide="zap" style="display: inline-block; width: 16px; height: 16px; vertical-align: middle;"></i>
+                <i
+                    data-lucide="zap"
+                    style="
+                        display: inline-block;
+                        width: 16px;
+                        height: 16px;
+                        vertical-align: middle;
+                    "
+                ></i>
                 Amplify Prompt
             </button>
 
@@ -1086,7 +1115,7 @@ Return ONLY the amplified prompt, ready to use directly with an AI.`
             };
 
             // Polar License Configuration
-            const POLAR_ORG_ID = 'c148dccf-e2cb-4041-9b73-e0f3e4410b56'; // Replace with your actual Polar organization ID
+            const POLAR_ORG_ID = 'c148dccf-e2cb-4041-9b73-e0f3e4410b56';
 
             // License validation function
             async function validateLicense(licenseKey) {
@@ -1408,7 +1437,8 @@ Return ONLY the amplified prompt, ready to use directly with an AI.`
                     outputBox.innerHTML = `<div class="error">${errorMessage}</div>`;
                 } finally {
                     amplifyBtn.disabled = false;
-                    amplifyBtn.innerHTML = '<i data-lucide="zap" style="display: inline-block; width: 16px; height: 16px; vertical-align: middle;"></i> Amplify Prompt';
+                    amplifyBtn.innerHTML =
+                        '<i data-lucide="zap" style="display: inline-block; width: 16px; height: 16px; vertical-align: middle;"></i> Amplify Prompt';
                     lucide.createIcons();
                 }
             });
@@ -1419,12 +1449,14 @@ Return ONLY the amplified prompt, ready to use directly with an AI.`
 
                 try {
                     await navigator.clipboard.writeText(amplifiedText);
-                    copyBtn.innerHTML = '<i data-lucide="check"></i><span>Copied</span>';
+                    copyBtn.innerHTML =
+                        '<i data-lucide="check"></i><span>Copied</span>';
                     copyBtn.classList.add('copied');
                     lucide.createIcons();
 
                     setTimeout(() => {
-                        copyBtn.innerHTML = '<i data-lucide="copy"></i><span>Copy</span>';
+                        copyBtn.innerHTML =
+                            '<i data-lucide="copy"></i><span>Copy</span>';
                         copyBtn.classList.remove('copied');
                         lucide.createIcons();
                     }, 2000);
@@ -1460,11 +1492,13 @@ Return ONLY the amplified prompt, ready to use directly with an AI.`
 
                 if (result.success) {
                     showNotification('Saved to: ' + result.filePath);
-                    saveBtn.innerHTML = '<i data-lucide="check"></i><span>Saved</span>';
+                    saveBtn.innerHTML =
+                        '<i data-lucide="check"></i><span>Saved</span>';
                     saveBtn.classList.add('saved');
                     lucide.createIcons();
                     setTimeout(() => {
-                        saveBtn.innerHTML = '<i data-lucide="save"></i><span>Save</span>';
+                        saveBtn.innerHTML =
+                            '<i data-lucide="save"></i><span>Save</span>';
                         saveBtn.classList.remove('saved');
                         lucide.createIcons();
                     }, 2000);

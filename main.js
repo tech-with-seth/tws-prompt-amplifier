@@ -8,7 +8,6 @@ const {
     screen,
     dialog
 } = require('electron');
-const path = require('path');
 const fs = require('fs');
 
 let tray = null;
@@ -22,13 +21,15 @@ if (!gotTheLock) {
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 500,
-        height: 600,
-        show: false,
-        frame: false,
-        resizable: false,
-        skipTaskbar: true,
         alwaysOnTop: true,
+        frame: false,
+        resizable: true,
+        show: false,
+        skipTaskbar: true,
+        minHeight: 600,
+        height: 600,
+        minWidth: 400,
+        width: 400,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
